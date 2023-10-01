@@ -8,7 +8,11 @@ const router = require('./routes/router');
 // DB connection
 connectDB(URI);
 
+// Setting the view engine
+app.set('view engine', 'ejs');
+
 app.use('/', router);
+
 
 app.listen(port, () => {
     console.log(`Your server is running at http://localhost:${port}`);
