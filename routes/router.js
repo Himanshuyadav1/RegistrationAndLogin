@@ -1,16 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const UserController = require('../controllers/UserController.js');
 
-router.get('/', (req, res) => {
-    res.render("homepage", { title: "Home Page" });
-});
+router.get('/', UserController.homePage);
 
-router.get('/login', (req, res) => {
-    res.render("login", { title: "Login Page" });
-});
+router.get('/login', UserController.loginPage);
 
-router.get('/registration', (req, res) => {
-    res.render("registration", { title: "Registration Page" });
-});
+router.get('/registration', UserController.registrationPage);
+
+router.post('/registration', UserController.userRegistration)
 
 module.exports = router;

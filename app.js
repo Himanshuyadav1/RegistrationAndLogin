@@ -11,8 +11,10 @@ connectDB(URI);
 // Setting the view engine
 app.set('view engine', 'ejs');
 
-app.use('/', router);
+// Using Middleware for getting data from form
+app.use(express.urlencoded({ extended: false }));
 
+app.use('/', router);
 
 app.listen(port, () => {
     console.log(`Your server is running at http://localhost:${port}`);
